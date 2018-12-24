@@ -1,0 +1,4 @@
+#!/usr/bin/r2
+program=./output/CheckDivision
+arg1=1234
+

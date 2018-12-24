@@ -1,0 +1,41 @@
+Hello! I'm Suraj Singh
+
+[----------------------------------registers-----------------------------------]
+EAX: 0x17 
+EBX: 0x1 
+ECX: 0x80490c8 ("Hello! I'm Suraj Singh\n")
+EDX: 0x17 
+ESI: 0x0 
+EDI: 0x0 
+EBP: 0x0 
+ESP: 0xffffd000 --> 0x1 
+EIP: 0x80480c3 (<_start+34>:	jmp    0x8048095 <_exit>)
+EFLAGS: 0x246 (carry PARITY adjust ZERO sign trap INTERRUPT direction overflow)
+[-------------------------------------code-------------------------------------]
+   0x80480b7 <_start+22>:	mov    ebx,0x1
+   0x80480bc <_start+27>:	mov    ecx,0x80490c8
+   0x80480c1 <_start+32>:	int    0x80
+=> 0x80480c3 <_start+34>:	jmp    0x8048095 <_exit>
+ | 0x80480c5:	add    BYTE PTR [eax],al
+ | 0x80480c7:	add    BYTE PTR [eax+0x65],cl
+ | 0x80480ca:	ins    BYTE PTR es:[edi],dx
+ | 0x80480cb:	ins    BYTE PTR es:[edi],dx
+ |->   0x8048095 <_exit>:	mov    eax,0x1
+       0x804809a <_exit+5>:	mov    ebx,0x0
+       0x804809f <_exit+10>:	int    0x80
+       0x80480a1 <_start>:	mov    eax,0x80490c8
+                                                                  JUMP is taken
+[------------------------------------stack-------------------------------------]
+0000| 0xffffd000 --> 0x1 
+
+
+
+
+
+
+
+suraj@suraj-HP-Laptop:~/Desktop/Challenges/Assembly/IntelAssembly$ nasm -f elf subroutine_example.asm -o bin/subroutine_example.o
+suraj@suraj-HP-Laptop:~/Desktop/Challenges/Assembly/IntelAssembly$ ld -m elf_i386 bin/subroutine_example.o -o output/subroutine_example
+suraj@suraj-HP-Laptop:~/Desktop/Challenges/Assembly/IntelAssembly$ ./output/subroutine_example 
+Hello! I'm Suraj Singh
+
